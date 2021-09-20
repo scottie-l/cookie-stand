@@ -26,7 +26,7 @@ let Seattle = {
             this.cookiesPurchased()
             for (let i=0; i < this.cookieSoldArray.length; i++) {
                 let li = document.createElement("li");
-                li.innerText=this.cookieSoldArray[i];
+                li.innerText= hours[i] + ": " + this.cookieSoldArray[i] + " Cookies";
                 seattleList.appendChild(li);
             }  //need store at top and tiems listed on side
         }
@@ -35,11 +35,11 @@ Seattle.render()
 
 
 let Tokyo = {
-    storeName: 'Tokyo',   // Object properties
-    minCust: 3,            // Object properties
-    maxCust: 24,            // Object properties
-    avgCookieSale: 1.2,     // Object properties
-    randoNumber: function () {  // object function for random number generator
+    storeName: 'Tokyo',   
+    minCust: 3,   
+    maxCust: 24,          
+    avgCookieSale: 1.2,
+    randoNumber: function () {  
         return Math.floor(Math.random() * (this.maxCust - this.minCust +1)) + this.minCust;
     },
     cookiesPurchased: function() {  
@@ -53,7 +53,7 @@ let Tokyo = {
             this.cookiesPurchased()
             for (let i=0; i < this.cookieSoldArray.length; i++) {
                 let li = document.createElement("li");
-                li.innerText=this.cookieSoldArray[i];
+                li.innerText= hours[i] + ": " + this.cookieSoldArray[i] + " Cookies";
                 tokyoList.appendChild(li);
             }
         }
@@ -61,11 +61,11 @@ let Tokyo = {
 Tokyo.render() 
 
 let Dubai = {
-    storeName: 'Dubai',   // Object properties
-    minCust: 11,            // Object properties
-    maxCust: 38,            // Object properties
-    avgCookieSale: 3.7,     // Object properties
-    randoNumber: function () {  // object function for random number generator
+    storeName: 'Dubai',   
+    minCust: 11,            
+    maxCust: 38,            
+    avgCookieSale: 3.7,     
+    randoNumber: function () {  
         return Math.floor(Math.random() * (this.maxCust - this.minCust +1)) + this.minCust;
     },
     cookiesPurchased: function() {  
@@ -79,7 +79,7 @@ let Dubai = {
             this.cookiesPurchased()
             for (let i=0; i < this.cookieSoldArray.length; i++) {
                 let li = document.createElement("li");
-                li.innerText=this.cookieSoldArray[i];
+                li.innerText= hours[i] + ": " + this.cookieSoldArray[i] + " Cookies";
                 dubaiList.appendChild(li);
             }
         }
@@ -87,11 +87,11 @@ let Dubai = {
 Dubai.render() 
 
 let Paris = {
-    storeName: 'Paris',   // Object properties
-    minCust: 20,            // Object properties
-    maxCust: 38,            // Object properties
-    avgCookieSale: 2.3,     // Object properties
-    randoNumber: function () {  // object function for random number generator
+    storeName: 'Paris',   
+    minCust: 20,            
+    maxCust: 38,            
+    avgCookieSale: 2.3,     
+    randoNumber: function () {  
         return Math.floor(Math.random() * (this.maxCust - this.minCust +1)) + this.minCust;
     },
     cookiesPurchased: function() {  
@@ -105,7 +105,7 @@ let Paris = {
             this.cookiesPurchased()
             for (let i=0; i < this.cookieSoldArray.length; i++) {
                 let li = document.createElement("li");
-                li.innerText=this.cookieSoldArray[i];
+                li.innerText= hours[i] + ": " + this.cookieSoldArray[i] + " Cookies";
                 parisList.appendChild(li);
             }
         }
@@ -113,11 +113,11 @@ let Paris = {
 Paris.render() 
 
 let Lima = {
-    storeName: 'Lima',   // Object properties
-    minCust: 2,            // Object properties
-    maxCust: 16,            // Object properties
-    avgCookieSale: 4.6,     // Object properties
-    randoNumber: function () {  // object function for random number generator
+    storeName: 'Lima',
+    minCust: 2,     
+    maxCust: 16,            
+    avgCookieSale: 4.6,     
+    randoNumber: function () {  
         return Math.floor(Math.random() * (this.maxCust - this.minCust +1)) + this.minCust;
     },
     cookiesPurchased: function() {  
@@ -131,29 +131,9 @@ let Lima = {
             this.cookiesPurchased()
             for (let i=0; i < this.cookieSoldArray.length; i++) {
                 let li = document.createElement("li");
-                li.innerText=this.cookieSoldArray[i];
+                li.innerText=hours[i] + ": " + this.cookieSoldArray[i] + " Cookies";
                 limaList.appendChild(li);
             }
         }
 }
-Lima.render() 
-
-
-
-
-
-// Objectives:
-// X1- Object properties:min/max hrly customers.  Avg. cookies/customer
-// X2- Uses method of that object to generate random number of ea customer/hour.
-// 3- Calculate and store simulated amts. of cookies purchased & the random number of customers generated
-// 4- Store results for each location in separate array... Perhaps as a property of the object representing the location.
-// 5- Display values of each array as unordered list
-// 6- Calculate sum of these hourly totals. Output should like below: & display the lists on sales.html.
-
-// Location    Min/Cust.   Max/Cust.   Avg. Cookie/sale
-// seattle         23          65    42      6.3  
-// tokyo           3           24    21      1.2
-// dubai           11          38    27      3.7 
-// paris           20          38    18      2.3
-// lima            2           16    14      4.6
-// each location should be its own js object
+Lima.render()
