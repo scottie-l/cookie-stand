@@ -1,0 +1,35 @@
+h1 {
+    color:black;
+    text-align: center;
+    text-decoration: underline;
+}
+
+h2 {
+    color:blue;
+    text-align: left;
+}
+
+body {
+    background-color:white;
+}
+
+table {
+    border: 5px solid black;
+    border-collapse: collapse;
+    display: inline-block;
+    
+}
+
+td {
+    border: thin solid blue;
+    border-collapse: collapse;
+    text-align: center;
+    height: 10px;
+    vertical-align: middle;
+}
+
+th {
+    border: thin solid blue;
+    border-collapse: collapse;
+    color:snow;
+}
