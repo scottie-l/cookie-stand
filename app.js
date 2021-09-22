@@ -23,7 +23,7 @@ StoreSales.prototype.cookiesPurchased= function() {  // function for getting avg
     for (let i= 0; i < hours.length; i++) {
         this.cookieSoldArray.push(Math.ceil(randoNumber(this.minCust, this.maxCust) * this.avgCookieSale))   
         this.totalCookieSold += this.cookieSoldArray[i];
-        console.log(this.totalCookieSold, "this is total asold")
+        console.log(this.totalCookieSold, "this is total sold")
     }
 }
 
@@ -32,8 +32,10 @@ StoreSales.prototype.render= function() {  // function to return values and for 
     this.cookiesPurchased()
     const tableRow= document.createElement('tr');
     const tableData= document.createElement('td');
+    const tableFoot= document.createElement('tfoot')
     tableData.textContent= this.storeName;
     tableRow.appendChild(tableData);
+    tableFoot.appendChild(tableData);
     for (let i=0; i < this.cookieSoldArray.length; i++) {
         let td = document.createElement("td");
         td.textContent= this.cookieSoldArray[i] + " Cookies";
@@ -43,8 +45,12 @@ StoreSales.prototype.render= function() {  // function to return values and for 
     rowTotal.textContent= this.totalCookieSold;
     tableRow.appendChild(rowTotal);
     tableElement.appendChild(tableRow);
-    
+    const rowFtTotal= document.createElement('tfoot');
+    rowFtTotal.textContent= this.totalCookieSold;
+    tableFoot.appendChild(rowFtTotal);
+    tableElement.appendChild(tableFoot);    
 }
+
 let Seattle= new StoreSales('Seattle', 23, 65, 6.3);
 Seattle.render()
 
@@ -77,20 +83,20 @@ function makeTableHeader() {
     tableElement.appendChild(tableRow);
 }
 
-function makeTableFooter() {
-    const tableRow= document.createElement('tr');
-    let tableFooter= document.createElement('th');
+function makeTableHeader() {
+    const tableFoot= document.createElement('tr');
+    let tableFooter= document.createElement('tfoot');
     tableFooter.textContent= 'Totals per Stores';
-    tableRow.appendChild(tableFooter);
-    for (let i=0; i < storeSales.totalCookieSold.length; i++) {
-        tableFooter= document.createElement('th');
+    tableFoot.appendChild(tableFooter);
+    for (let i=0; i < null; i++) {
+        tableFooter= document.createElement('tfoot');
         tableFooter.textContent= totalCookieSold;
-        tableRow.appendChild(tableFooter);
+        tableFoot.appendChild(tableFooter);
     }
-    tableFooter= document.createElement('th');
-    tableFooter.textContent= "Totals per Hour";
-    tableRow.appendChild(tableFooter);
-    tableElement.appendChild(tableRow);
+    tableFooter= document.createElement('tfoot');
+    tableFooter.textContent= "null";
+    tableFoot.appendChild(tableFooter);
+    tableElement.appendChild(tableFoot);
 }
 
 
