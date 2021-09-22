@@ -13,23 +13,14 @@ body {
     background-color:white;
 }
 
-table {
-    border: 5px solid black;
+table, td {
+    border:thin solid black;
     border-collapse: collapse;
-    display: inline-block;
-    
-}
-
-td {
-    border: thin solid blue;
-    border-collapse: collapse;
-    text-align: center;
-    height: 10px;
-    vertical-align: middle;
+    width: 800px;
+    height: 50px;
+    padding: 10px;
 }
 
 th {
-    border: thin solid blue;
-    border-collapse: collapse;
-    color:snow;
+    color:slateblue
 }

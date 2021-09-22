@@ -80,11 +80,11 @@ function makeTableHeader() {
 function makeTableFooter() {
     const tableRow= document.createElement('tr');
     let tableFooter= document.createElement('th');
-    tableFooter.textContent= 'Totals per Hour';
+    tableFooter.textContent= 'Totals per Stores';
     tableRow.appendChild(tableFooter);
-    for (let i=0; null; i++) {
+    for (let i=0; i < storeSales.totalCookieSold.length; i++) {
         tableFooter= document.createElement('th');
-        tableFooter.textContent= null;
+        tableFooter.textContent= totalCookieSold;
         tableRow.appendChild(tableFooter);
     }
     tableFooter= document.createElement('th');
@@ -92,6 +92,7 @@ function makeTableFooter() {
     tableRow.appendChild(tableFooter);
     tableElement.appendChild(tableRow);
 }
+
 
 //     Code below from initial beginning of assignment.
 // let limaList= document.getElementById("Lima")
