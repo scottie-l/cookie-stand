@@ -1,7 +1,7 @@
 # cookie-stand
-Week 2 project for 201
-
-Made by: Scott lease
+Code 201-
+Week 2 Project: Cookie-Stand
+By: Scott lease
 
 ## Problem Domain
 Your friend Pat has come up with a business idea by combining two signature Seattle icons: Pat has developed a recipe for a coffee-time confection called Salmon Cookies. These cookies made into the shape of a salmon that has just a hint of fishy goodness.
@@ -13,6 +13,7 @@ Pat’s Salmon Cookies, soon with franchises internationally, needs to calculate
 The minimum number of customers per hour.
 The maximum number of customers per hour.
 The average number of cookies purchased per customer.
+
 Because we are early in the life of this business, we will need to build an application that is adaptable. Pat will need to be able to add and remove locations from the daily projections report, and Pat will also need to be able to easily modify the input numbers for each location based on day of the week, special events, and other factors. Pat would like to see these numbers with nice formatting in a web application.
 
 Pat needs you to take a leading role in doing the design work and construction of a public-facing page, too. They already have a logo image picked out (below), but Pat is requesting your assistance in the design of the documents, color scheme, fonts, and any additional images for the public facing site.
