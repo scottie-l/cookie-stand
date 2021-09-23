@@ -2,7 +2,7 @@
 <html>
     <head>
         <title></title>
-        <link rel="stylesheet" href="saleStyle.css">
+        <link rel ="stylesheet" href ="saleStyle.css">
     </head>
     <body>
         <header> 
@@ -10,14 +10,34 @@
         </header>
         <main>
             <h2>Sales by store</h2>
-            <table id="Stores"></table>        
+            <table id = "Stores">
+             <tfoot id = "tableFooter"></tfoot>
+            </table>        
        <!-- <lh>Lima</lh>
-            <ul id="Lima"></ul>   Used for original code when stored in ul--> 
-        </main>
+            <ul id = "Lima"></ul>   Used for original code when stored in ul--> 
+        </main>            
+            <form id = "addStore">
+                <fieldset>
+                    <legend>New Store Information</legend>
+                    <label for = 'storeLocation'>Store Location</label>
+                    <input name = 'storeLocation' type ='text' required/>
+                    <!-- <label for = 'storeOpeningTime'>Store Opening Time</label>
+                    <input name = 'storeOpeningTime' type = number required/> -->
+                    <!-- <label for = 'storeClosignTime'>Store Closing Time</label>
+                    <input name = 'storeClosingTime' type = number required/> -->
+                    <label for = 'minCust'>Min. Customers Expected</label>
+                    <input name = 'minCust' type = number required/>
+                    <label for = 'maxCust'>Max. Customers Expected</label>
+                    <input name = 'maxCust' type = number required/>
+                    <label for = 'avgCookieSale'>Avg. Cookies Sales Expected</label>
+                    <input name = 'avgCookieSale' type = number step = any required/>
+                    <button type = 'submit'>Submit</button>
+                </fieldset>
+            </form>
         <footer>
-            <link rel="homepage" href="index.html">  
+            <link rel = "homepage" href ="index.html">  
         </footer> 
-        <p><a href="index.html">Home</a></p>
-        <script src="app.js"></script>     
+        <p><a href = "index.html">Home</a></p>
+        <script src = "app.js"></script>     
     </body>
 </html>

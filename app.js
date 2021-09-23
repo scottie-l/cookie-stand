@@ -1,11 +1,12 @@
-'use strict'
+'use strict';
 
-// leave global for all to reference later on.
-
-let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'] //Array for hours
+// leave global variables at top for all to reference later on. Leaving at top is a "Best Practice".
+let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'] // Global array for hours.
 let tableElement = document.getElementById("Stores")  // Id to call out specific place in HTML page of where to plug in.
+let tableFooter = document.getElementById("tableFooter") // Made footer global so able call it in 'add new store' function. Added a tablefooter Id on html pg to locate
+let storeFormEl = document.getElementById('addStore') // Made for new store creation function, after the footer render function.
 
-function StoreSales(storeName, minCust, maxCust, avgCookieSale) {
+function StoreSales(storeName, minCust, maxCust, avgCookieSale) {   // method variables list.
     this.storeName = storeName;
     this.minCust = minCust;
     this.maxCust = maxCust;
@@ -15,11 +16,11 @@ function StoreSales(storeName, minCust, maxCust, avgCookieSale) {
     StoreSales.all.push(this);
 }
 
-function randoNumber(minCust, maxCust) {  // function for random number generator
+function randoNumber(minCust, maxCust) {  // Function for random number generator.
     return Math.floor(Math.random() * (maxCust - minCust +1)) + minCust;
 }
 
-StoreSales.prototype.cookiesPurchased = function() {  // function for getting avg. cookies/hour
+StoreSales.prototype.cookiesPurchased = function() {  // Function for getting avg. cookies/hour & total cookies per hour.
     randoNumber(this.minCust, this.maxCust) 
     for (let i = 0; i < hours.length; i++) {
         this.cookieSoldArray.push(Math.ceil(randoNumber(this.minCust, this.maxCust) * this.avgCookieSale))   
@@ -28,7 +29,7 @@ StoreSales.prototype.cookiesPurchased = function() {  // function for getting av
     }
 }
 
-StoreSales.prototype.render = function() {  // function to return values and for printing to HTML
+StoreSales.prototype.render = function() {  // Function to return values.
     makeTableHeader();
     this.cookiesPurchased()
     const tableRow = document.createElement('tr');
@@ -47,23 +48,23 @@ StoreSales.prototype.render = function() {  // function to return values and for
 }
 StoreSales.all = [];
 
-let Seattle= new StoreSales('Seattle', 23, 65, 6.3);
+let Seattle = new StoreSales('Seattle', 23, 65, 6.3);  // method prototype variables plugged in.
 Seattle.render()
 
-let Tokyo= new StoreSales('Tokyo', 3, 24, 1.2);
+let Tokyo = new StoreSales('Tokyo', 3, 24, 1.2);
 Tokyo.render()
 
-let Dubai= new StoreSales('Dubai', 11, 38, 3.7);
+let Dubai = new StoreSales('Dubai', 11, 38, 3.7);
 Dubai.render()
 
-let Paris= new StoreSales('Paris', 20 , 38, 2.3);
+let Paris = new StoreSales('Paris', 20 , 38, 2.3);
 Paris.render()
 
-let Lima= new StoreSales('Lima', 2, 16, 4.6);
+let Lima = new StoreSales('Lima', 2, 16, 4.6);
 Lima.render()
 
 
-function makeTableHeader() {
+function makeTableHeader() {        // Function to create and populate the table with above data.
     const tableRow = document.createElement('tr');
     let tableHeader = document.createElement('th');
     tableHeader.textContent = 'Store Location';
@@ -79,11 +80,11 @@ function makeTableHeader() {
     tableElement.appendChild(tableRow);
 }
 
-function renderFooter() {
+function renderFooter() {  // Function to create and populate the footer section of table.
     const tableRow = document.createElement('tr');
-    let tableFooter = document.createElement('th');
-    tableFooter.textContent = 'Grand Total per Day';
-    tableRow.appendChild(tableFooter);
+    let tableFoot = document.createElement('th');
+    tableFoot.textContent = 'Grand Total per Day';
+    tableRow.appendChild(tableFoot);
     let grandTotal = 0;
     for (let i = 0; i < hours.length; i++) {
         let sum = 0;
@@ -91,16 +92,45 @@ function renderFooter() {
             sum = sum + StoreSales.all[j].cookieSoldArray[i];
             grandTotal = grandTotal + StoreSales.all[j].cookieSoldArray[i];
         }
-        tableFooter = document.createElement('th');
-        tableFooter.textContent = sum;
-        tableRow.appendChild(tableFooter);
+        tableFoot = document.createElement('th');
+        tableFoot.textContent = sum;
+        tableRow.appendChild(tableFoot);
     }    
-    tableFooter = document.createElement('th');
-    tableFooter.textContent = grandTotal;
-    tableRow.appendChild(tableFooter);
-    tableElement.appendChild(tableRow);
+    tableFoot = document.createElement('th');
+    tableFoot.textContent = grandTotal;
+    tableRow.appendChild(tableFoot);
+    tableFooter.appendChild(tableRow);
 }
 renderFooter();
+
+function handleaddStore(event) {  // Add new store function. Will createe data, remove footer, populate with new data and re-render footer with new totals.
+    event.preventDefault();
+    let newLocation = event.target.storeLocation.value;
+    let newMinCust = event.target.minCust.value;
+    let newMaxCust = event.target.maxCust.value;
+    let newAvgCookieSale = event.target.avgCookieSale.value;
+    let newStore = new StoreSales(newLocation, newMinCust, newMaxCust, newAvgCookieSale);
+    newStore.render();
+    tableFooter.removeChild(tableFooter.lastChild);
+    renderFooter();
+}
+storeFormEl.addEventListener('submit', handleaddStore);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //     Code below from initial beginning of assignment.
 // let limaList= document.getElementById("Lima")
