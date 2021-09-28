@@ -63,7 +63,6 @@ Paris.render()
 let Lima = new StoreSales('Lima', 2, 16, 4.6);
 Lima.render()
 
-
 function makeTableHeader() {        // Function to create and populate the table with above data.
     const tableRow = document.createElement('tr');
     let tableHeader = document.createElement('th');
@@ -79,6 +78,25 @@ function makeTableHeader() {        // Function to create and populate the table
     tableRow.appendChild(tableHeader);
     tableElement.appendChild(tableRow);
 }
+
+// function makeTableRow() {
+//     const tableRowEL = document.createElement('tr');
+//     let tableRow = document.createElement('th');
+//     tableHeader.textContent = 'Store Location';
+//     tableRow.appendChild(tableHeader);
+// }
+
+// function makeTableHeader() {
+//     const tableHeader = document.createElement('tr');
+//     let tableHeader = document.createElement('th');
+//     tableHeader.textContent = 'Store Location';
+//     tableRow.appendChild(tableHeader);
+//     for (let i = 0; i < hours.length; i++) {
+//         tableHeader = document.createElement('th');
+//         tableHeader.textContent = hours[i];
+// }
+
+
 
 function renderFooter() {  // Function to create and populate the footer section of table.
     const tableRow = document.createElement('tr');
@@ -103,7 +121,7 @@ function renderFooter() {  // Function to create and populate the footer section
 }
 renderFooter();
 
-function handleaddStore(event) {  // Add new store function. Will createe data, remove footer, populate with new data and re-render footer with new totals.
+function handleaddStore(event) {  // Add new store function. Will create data, remove footer, populate with new data and re-render footer with new totals.
     event.preventDefault();
     let newLocation = event.target.storeLocation.value;
     let newMinCust = event.target.minCust.value;
